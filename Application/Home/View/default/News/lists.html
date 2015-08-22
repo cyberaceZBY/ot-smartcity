@@ -1,0 +1,37 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="news-page main">
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>新闻列表</h1>
+            </div>
+        </div>
+        <div class="common-wrapper">
+            <div class="news-list">
+                <volist name="list" id="data">
+                    <div class="news-list__item">
+                        <a class="news-item__title" href="{:U('News/detail?id='.$data['id'])}">{$data.title}</a>
+                        <span class="date">发表于 {$data.create_time|date='Y-m-d H:i:s',###}</span>
+                        <p class="news-item__brief">{$data.description}<a href="{:U('News/detail?id='.$data['id'])}">查看全文</a></p>
+                    </div>
+                </volist>
+            </div>
+            <div class="common-pagination">
+                <article:page cate="$category['id']" listrow="$category['list_row']" />
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            var page = $('.common-pagination');
+            if(page.find('a').size() <= 0){
+                page.removeClass('common-pagination');
+            }
+        });
+    </script>
+</block>

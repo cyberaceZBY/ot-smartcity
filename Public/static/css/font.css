@@ -1,0 +1,13 @@
+@font-face {
+    font-family:'ZongYiW7';
+    font-style:normal;
+    font-weight:200;
+    src:url("../font/DFPZongYiW7-GB.eot");
+    src:url("../font/DFPZongYiW7-GB.eot?#iefix") format('embedded-opentype'),url("../font/DFPZongYiW7-GB.TTF") format("truetype");
+}
+@font-face {
+    font-family:'PingHei';
+    font-style:normal;
+    font-weight:200;
+    src:url("../font/PingHei-light.woff") format("woff"), url("../font/PingHei-light.ttf") format("truetype");
+}

@@ -1,0 +1,53 @@
+<extend name="Base/common"/>
+
+<block name="body">
+    <div class="main order-page">
+
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>商城</h1>
+            </div>
+        </div>
+        <div class="common-wrapper order-category">
+            <a class="category-label">{$note}</a>
+        </div>
+        <div class="common-wrapper">
+            <div class="order-list">
+                <volist name="lists" id="data">
+                    <a class="order-list__item"  href="{:U('product?itemId='.$data['id'])}">
+                        <div class="order-item__image">
+                            <img class="api-order-item__image" src="{$data.images.small}">
+                        </div>
+                        <div>
+                            <h4 class="order-item__name" onmouseover="show({$data.id})" onmouseout="hide({$data.id})">{$data.name}</h4>
+                        </div>
+                        <h4 class="order-item__name_all" hidden id="{$data.id}">{$data.name}</h4>
+                        <div class="order-item__info">
+                            <div class="order-item__price">￥{$data.price}</div>
+                            <!--<div class="order-item__review"><span class="star-{$data.brand}"></span></div>-->
+                        </div>
+                        <!--<div class="order-item__action">-->
+                            <!--<a class="btn-order btn btn--red" href="{$data.buy_link}">立即订购</a>-->
+                        <!--</div>-->
+                    </a>
+                </volist>
+                <div class="clearfix"></div>
+            </div>
+            <if condition="$pages !=''">
+                <div class="common-pagination">
+                    {$pages}
+                </div>
+            </if>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            $('#header-nav-order').addClass('current');
+            $('.category-label').text(decodeURIComponent($('.category-label').text()));
+
+        });
+    </script>
+</block>

@@ -1,0 +1,114 @@
+.map-dialog{
+    width:490px;
+    height:435px;
+    border: 1px solid #A0A0A0;
+    margin-left: -245px;
+    margin-top: -217px;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    z-index: 1000;
+    background:#fff;
+}
+.map-dialog.hidden{
+    display: none;
+}
+.map-dialog-header{
+    border: 0;
+    margin: 0;
+    padding: 0 10px;
+    background: url(/Public/static/kindeditor/default/background.png) repeat scroll 0 0 #F0F0EE;
+    border-bottom: 1px solid #CFCFCF;
+    height: 24px;
+    font: 12px/24px "sans serif",tahoma,verdana,helvetica;
+    text-align: left;
+    color: #222;
+    cursor: move;
+}
+.map-dialog-body{
+    padding:10px 20px;
+}
+.map-dialog .map-dialog-action{
+    height: 25px;
+}
+.map-dialog .md-left{
+    float:left;
+}
+.map-dialog .md-right{
+    float:right;
+}
+.map-dialog .md-map{
+    margin: 10px 0;
+}
+.map-dialog .map-dialog-bottom{
+    height: 20px;
+}
+.map-dialog .map-dialog-bottom span{
+    background: url(/Public/static/kindeditor/default/background.png) no-repeat scroll 0 -25px transparent;
+    cursor: pointer;
+    height: 23px;
+    line-height: 23px;
+    overflow: visible;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    margin-left: 20px;
+    float: right;
+}
+.map-dialog .map-dialog-bottom .md-button{
+    padding: 0 12px;
+    border: 0 none;
+    color: #333;
+    font-size: 12px;
+    left: 2px;
+    text-decoration: none;
+    background: url(/Public/static/kindeditor/default/background.png) no-repeat scroll right -25px transparent;
+    cursor: pointer;
+    height: 23px;
+    line-height: 23px;
+    overflow: visible;
+    display: inline-block;
+    vertical-align: top;
+}
+.map-layer-mask{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:999;
+    background-color: #FFF;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+.insert-map-btn{
+    height: 30px;
+    width: 120px;
+    background-color: rgb(39, 173, 96);
+    border:none;
+    color: #ffffff;
+
+}
+
+/* 新闻中心 相关文章（add,edit)
+------------------------------------------ */
+.relation-news-panel{
+
+}
+.relation-news-panel .row{
+    height:30px;padding:5px 0;
+}
+.relation-news-panel .row .column{
+    float: left;
+    display: inline-block;
+    margin-right:5px;
+}
+.relation-news-panel .row .column a{
+    display: inline-block;
+    line-height: 30px;
+    text-decoration: none;
+    border: none;
+}

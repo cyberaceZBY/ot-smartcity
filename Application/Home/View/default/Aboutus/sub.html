@@ -1,0 +1,29 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="main store-page">
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>关于硬糖</h1>
+            </div>
+        </div>
+        <div class="common-wrapper" style="overflow: hidden;">
+            <ul class="aboutus-list">
+            <volist name="lists" id="data">
+                <li><a class="{$content['id']==$data['id']?'current':''}" href="{:U('sub?subId='.$data['id'])}" id="{$data.id}">{$data.sub_title}</a></li>
+            </volist>
+            </ul>
+            <div style="width: 740px; float: right; padding: 30px;">
+                {$content.content}
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            $('#header-nav-aboutus').addClass('current');
+        });
+    </script>
+</block>

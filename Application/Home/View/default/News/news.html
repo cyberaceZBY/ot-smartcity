@@ -1,0 +1,43 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="news-page main">
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>资讯列表</h1>
+            </div>
+        </div>
+        <div class="common-wrapper" style="overflow: hidden;">
+            <ul class="aboutus-list">
+                <li><a href="/News/reports.html">媒体报道</a></li>
+                <li><a class="{$contentId==0?'current':''}" href="{:U('/Home/news/news?typeId=0')}">智能开关资讯</a></li>
+                <li><a class="{$contentId==1?'current':''}" href="{:U('/Home/news/news?typeId=1')}">智能插座资讯</a></li>
+            </ul>
+            <div class="news-list" style="float: left; width: 740px;padding: 10px 40px;">
+                <volist name="news" id="data">
+                    <div class="news-list__item">
+                        <a class="news-item__title" href="{:U('/Home/news/detail?id='.$data['id'])}">{$data.title}</a>
+                        <span class="date">发表于 {$data.create_time|date='Y/m/d',###}</span>
+                        <p class="news-item__brief"><a href="{:U('/Home/news/detail?id='.$data['id'])}">查看全文</a></p>
+                    </div>
+                </volist>
+            </div>
+            <!--<div class="common-pagination">-->
+                <!--<article:page cate="$category['id']" listrow="$category['list_row']" />-->
+            <!--</div>-->
+
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            var page = $('.common-pagination');
+            if(page.find('a').size() <= 0){
+                page.removeClass('common-pagination');
+            }
+        });
+    </script>
+</block>

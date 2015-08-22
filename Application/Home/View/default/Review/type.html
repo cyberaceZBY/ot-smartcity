@@ -1,0 +1,49 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="main review-page">
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>{$name}评测</h1>
+            </div>
+        </div>
+        <div class="common-wrapper">
+            <div class="review" id="review-items">
+                <volist name="reviews" id="data">
+                    <div class="review-item">
+                        <a class="" href="{:U('Review/detail?id='.$data['id'])}">
+                            <img src="{$data.image|get_cover='path'}" />
+                            <div class="review-item__content">
+                                <div class="item-content__title">{$data.title}</div>
+                                <div class="item-content__description">{$data.description}</div>
+                                <div class="item-content__date">{$info.time|date='Y-m-d H:i:s',###}</div>
+                            </div>
+                        </a>
+                    </div>
+                </volist>
+                <div>
+                    <if condition="$pages != ''">
+                        <div class="common-pagination">
+                            {$pages}
+                        </div>
+                    </if>
+                </div>
+            </div>
+            <div class="review-type">
+                <div class="review-type_title">分类</div>
+                <ul>
+                    <volist name="types" id="data">
+                        <li><a href="{:U('type?id='.$data['id'])}">{$data.name}</a></li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+    </script>
+</block>

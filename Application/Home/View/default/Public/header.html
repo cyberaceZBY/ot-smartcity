@@ -1,0 +1,45 @@
+<div id="g-header">
+    <div class="g-header">
+        <div class="g-header__logo">
+            <a href="/">
+                <div class="img"></div>
+                <div>
+                    <div class="title">智慧城市协同创新中心</div>
+                    <div class="sub-title">smart city innovation collaboration center</div>
+                </div>
+            </a>
+        </div>
+        <div class="g-header__nav ">
+            <volist name="navMenu" id="nav">
+                <div class="menu-item" >
+                <a class="menu-title" href="http://localhost:8888/index.php">{$nav['title']}</a>
+                <ul class="sub-menu">
+                    <volist name="nav['list']" id="nav_sub">
+                        <li>
+                            <if condition="$nav_sub['type'] == -1">
+                                <a href="{:U('/Content/sub?Id='.$nav_sub['id'])}" class="sub-menu-item">{$nav_sub['title']}</a>
+                            </if>
+                            <if condition="$nav_sub['type'] != -1">
+                                <a href="{:U('/Content/content?Id='.$nav_sub['id'])}" class="sub-menu-item">{$nav_sub['title']}</a>
+                            </if>
+                        </li>
+                    </volist>
+                </ul>
+                </div>
+            </volist>
+        </div>
+
+        <div class="g-header__action">
+            <!--<div class="g-header__action--link">
+            <span class="g-header__contact">客服电话：400-0432-580 </span>
+            <a id="g-login-info"  href="[[URL]]"><span>[[TEXT]]</span></a>
+            </div>-->
+            <div class="g-header__action--search">
+                <span onclick="g_search_click()">&nbsp;</span>
+                <input type="text" placeholder="搜索" id="g-search-input" onkeydown="g_search_keydown(event)"/>
+                <a class="g-header__search" onclick="g_search_click()"></a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

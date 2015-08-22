@@ -1,0 +1,64 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="main product-page">
+        <div class="common-banner">
+            <div class="banner-wrapper">
+                <h1>活动专区</h1>
+            </div>
+        </div>
+        <!--<div class="type-wrapper">-->
+            <!--<div class="product-type" id="types">-->
+                <!--<div class="type-list">-->
+                    <!--<if condition="$types != null">-->
+                        <!--<php>$index = 1;</php>-->
+                        <!--<volist name="types" id="data">-->
+                            <!--<if condition="$index eq 1 or ($index gt 5 and $index%5 eq 1)">-->
+                                <!--<br><div class="item-group">-->
+                            <!--</if>-->
+                            <!--<div class="product-type__item">-->
+                                <!--<a href="{:U('type?id='.$data['id'])}">-->
+                                    <!--<div class="type-item__image">-->
+                                        <!--<img src="{$data.image|get_cover='path'}"/>-->
+                                    <!--</div>-->
+                                    <!--<div class="type-item__name ellipsis">{$data.name}</div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<if condition="$index%5 == 0">-->
+                                <!--</div>-->
+                            <!--</if>-->
+                            <!--<php>$index++;</php>-->
+                        <!--</volist>-->
+                        <!--<if condition="($index-1)%5 != 0">-->
+                            <!--</div>-->
+                        <!--</if>-->
+                     <!--</if>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="common-wrapper">
+            <div class="product-promotion">
+                <volist name="promotions" id="data">
+                    <div class="promotion-item">
+                        <img src="{$data.image|get_cover='path'}" />
+                        <div class="promotion-item__content pos-{$data.position}">
+                            <div class="item-content__title">{$data.title}</div>
+                            <div class="item-content__description">{$data.description}</div>
+                            <a class="btn btn--green" href="{$data.link}">了解更多</a>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            $('#header-nav-product').addClass('current');
+        });
+    </script>
+</block>
+

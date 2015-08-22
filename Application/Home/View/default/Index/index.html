@@ -1,0 +1,163 @@
+<extend name="Base/common"/>
+
+<block name="body">
+
+    <div id="index-main" class="main index-page show-brand" style="position: relative;">
+        <div class="slide-wrapper" id="slides">
+            <div class="slides_container">
+                <think:datalist name="slide" result="slide" limit="5" order="level DESC,id DESC">
+                    <div class="slide-item" style="background-image: url({$slide.image|get_cover='path'})">
+                        <a class="slide-content" style="display: block;" href="{$slide.link}"></a>
+                    </div>
+                </think:datalist>
+            </div>
+        </div>
+
+
+        <div style="width: 1000px; margin: 0 auto;">
+            <div class="index-page-news">
+                <div class="column col-span-2">
+                    <div class="index-page-title">
+                        中心动态
+                        <a class="link-more" href="/News/reports.html">更多中心动态</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="centerNewsList" id="report">
+                            <tr>
+                                <td>
+                                    <div class="line-tag"></div>
+                                    <a target="_blank" href="{$report.link}">{$report.title}</a>
+                                </td>
+                                <td>{$report.time}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <div class="column">
+                    <div class="index-page-title">
+                        通知公告
+                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">更多通知公告</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="announcementList" id="mn">
+                            <tr>
+                                <td>
+                                    <div class="line-tag"></div>
+                                    <a href="{:U('/Home/news/detail?id='.$mn['id'])}">{$mn.title}</a>
+                                </td>
+                                <td>{$mn.create_time|date='Y-m-d',###}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+                <div class="column col-span-2">
+                    <div class="index-page-title">
+                        行业资讯
+                        <a class="link-more" href="{:U('/Home/news/news?typeId=1')}">更多行业资讯</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="fieldNewsList" id="rn">
+                            <tr>
+                                <td>
+                                    <div class="line-tag"></div>
+                                    <a href="{:U('/Home/news/detail?id='.$rn['id'])}">{$rn.title}</a>
+                                </td>
+                                <td>{$rn.create_time|date='m/d',###}</td>
+                            </tr>
+                        </volist>
+
+                    </table>
+                </div>
+                <div class="column">
+                    <div class="index-page-title">
+                        中心简介
+                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">查看详情</a>
+                    </div>
+                    <div>
+                        {$introContent}
+                    </div>
+                </div>
+                <div class="column col-span-2">
+                    <div class="index-page-title">
+                        创新研究
+                        <a class="link-more" href="{:U('/Home/news/news?typeId=1')}">更多创新研究</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="rightNews" id="rn">
+                            <tr>
+                                <td>
+                                    <div class="line-tag"></div>
+                                    <a href="{:U('/Home/news/detail?id='.$rn['id'])}">{$rn.title}</a>
+                                </td>
+                                <td>{$rn.create_time|date='m/d',###}</td>
+                            </tr>
+                        </volist>
+
+                    </table>
+                </div>
+                <div class="column">
+                    <div class="index-page-title">
+                        友情链接
+                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">更多友情链接</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="partnerList" id="pl">
+                            <tr>
+                                <td colspan="2" style="text-align: left;">
+                                    <div class="line-tag"></div>
+                                    <a target="view_window" href="{$pl.link}">{$pl.name}</a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            $('#slides').slides({
+//                preload: true,
+//                preloadImage: '/img/loading.gif',
+
+                hoverPause: true,
+                play: 3000,
+                pause: 2000,
+                pagination: {
+                    active: true,
+                    effect: "slide"
+                },
+                slidesLoaded: function () {
+                    $('.slides_container').css({height: '600px'});
+                    $(".slides_control").css({width: "100%", height: "600px"});
+                }
+            });
+            $('#header-nav-index').addClass('current');
+        });
+    </script>
+</block>

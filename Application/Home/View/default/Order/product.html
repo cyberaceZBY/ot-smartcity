@@ -1,0 +1,74 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="main product-page">
+        <div class="common-banner" style="height: auto;">
+            <div class="banner-wrapper">
+                <h1>商品详情</h1>
+                <!--<h3 style="color: #aaaaaa; font-weight: normal; margin-top: -10px; font-size: 14px;">{$item.properties.shortDescription}</h3>-->
+            </div>
+        </div>
+        <div class="common-wrapper">
+            <div>
+                <div class="promotion-item">
+                    <div class="product-detail_brief">
+                        <div class="product-detail_brief_images">
+                            <div class="product-detail_brief_images_container" style="width:330px;height:330px;padding-bottom: 20px;">
+                                <img style="width:330px;height:auto;cursor:auto;" class="product-detail_brief_images_container_image"
+                                     src="{$item.images.main.icon.href}"/>
+                            </div>
+                            <ul class="product-detail_brief_featured">
+                                <li style="width:70px; height:70px; background-size:70px 70px; background-image: url('{$item.images.main.icon.href}')}" link="{$item.images.main.icon.href}"
+                                    class="product-detail_brief_featured_item product-detail_brief_featured_item_img--active"></li>
+                                <volist name="featuredImgs" id="data">
+                                <li style="width:70px; height:70px; background-size:70px 70px; background-image: url('{$data.href}')}" link="{$data.href}" class="product-detail_brief_featured_item"></li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div class="product-detail_brief_other">
+                            <div class="product-detail_brief_other_title">{$item.name}</div>
+                            <div class="product-detail_brief_other_desc">{$item.properties.shortDescription}</div>
+                            <div class="product-detail_brief_price" style="margin-top:30px;">
+                                <span>售价：<span>
+                                <span class="product-detail_brief_price_value" style="display:inline; margin-left:35px;  color: #ff0000; font-size: 30px;">￥{$item.price}</span>
+                            </div>
+                            <div class="product-detail_brief_other_link {$item['properties']['tmallLink']==null && $item['properties']['jdLink']==null?'invisible':''}">
+                                购买页面：
+                                <a href="{$item.properties.tmallLink}" class="{$item['properties']['tmallLink']==null?'invisible':''}" style="background-image: url(/Public/static/img/icon-tmall.png);"></a>
+                                <a href="{$item.properties.jdLink}" class="{$item['properties']['jdLink']==null?'invisible':''}"  style="background-image: url(/Public/static/img/icon-jd.png);"></a>
+                            </div>
+                            <div class="product-detail_brief_other_link {$item['properties']['tmallLink']==null && $item['properties']['jdLink']==null?'':'invisible'}" style="color: #777777">
+                                暂无购买页面
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--<div class="basic-info" style="height: 330px">-->
+                        <!--<img src="{$item.images.main.icon.href}"/>-->
+                    <!--</div>-->
+                    <div style="width: 950px;padding-top: 50px;">
+                        {$item.properties.longDescription}
+                        <!--<a class="btn btn--green" href="{$data.link}">了解更多</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            $('#header-nav-order').addClass('current');
+
+            $('.product-detail_brief_featured_item').click(function(){
+                $('.product-detail_brief_images_container_image').attr('src',($(this).attr('link')));
+                $('.product-detail_brief_featured li').removeClass('product-detail_brief_featured_item_img--active');
+                $(this).addClass('product-detail_brief_featured_item_img--active');
+            });
+        });
+
+    </script>
+</block>
+

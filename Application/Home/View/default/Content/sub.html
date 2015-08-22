@@ -1,0 +1,47 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <div class="main store-page">
+
+
+        <div class="common-wrapper" style="overflow: hidden;">
+            <ul class="aboutus-list">
+                <volist name="lists" id="data">
+                    <li><a class="{$cateId==$data['id']?'current':''}" href="{:U('/Content/sub?Id='.$data['id'])}"
+                           id="{$data.id}">{$data.title}</a></li>
+                </volist>
+            </ul>
+            <div style="width: 740px; float: right; padding: 30px;">
+                <div class="common-banner">
+                    <div class="banner-wrapper">
+                        <h1>{$title}</h1>
+                    </div>
+                </div>
+                <div style="min-height: 300px;">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="width: 80px;"></th>
+                        </tr>
+                        <volist name="content" id="pl">
+                            <tr>
+                                <td colspan="2" style="text-align: left;">
+                                    <div class="line-tag"></div>
+                                    <a target="view_window" href="{:U('/Content/content?Id='.$pl['id'])}">{$pl.name}</a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function(){
+            $('#header-nav-aboutus').addClass('current');
+        });
+    </script>
+</block>

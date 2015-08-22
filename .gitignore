@@ -1,0 +1,8 @@
+.*
+!.gitignore
+
+Runtime/**/*
+Runtime/*
+
+Uploads/**/*
+Uploads/*
