@@ -1,6 +1,6 @@
 <div id="g-header">
     <div class="g-header">
-        <div class="g-header__logo">
+        <div class="g-header__logo" style="width: 350px;">
             <a href="/">
                 <div class="img"></div>
                 <div>
@@ -12,7 +12,7 @@
         <div class="g-header__nav ">
             <volist name="navMenu" id="nav">
                 <div class="menu-item" >
-                <a class="menu-title" href="http://localhost:8888/index.php">{$nav['title']}</a>
+                <a class="menu-title">{$nav['title']}</a>
                 <ul class="sub-menu">
                     <volist name="nav['list']" id="nav_sub">
                         <li>
@@ -29,17 +29,17 @@
             </volist>
         </div>
 
-        <div class="g-header__action">
-            <!--<div class="g-header__action--link">
-            <span class="g-header__contact">客服电话：400-0432-580 </span>
-            <a id="g-login-info"  href="[[URL]]"><span>[[TEXT]]</span></a>
-            </div>-->
-            <div class="g-header__action--search">
-                <span onclick="g_search_click()">&nbsp;</span>
-                <input type="text" placeholder="搜索" id="g-search-input" onkeydown="g_search_keydown(event)"/>
-                <a class="g-header__search" onclick="g_search_click()"></a>
-            </div>
-        </div>
+        <!--<div class="g-header__action">-->
+            <!--&lt;!&ndash;<div class="g-header__action--link">-->
+            <!--<span class="g-header__contact">客服电话：400-0432-580 </span>-->
+            <!--<a id="g-login-info"  href="[[URL]]"><span>[[TEXT]]</span></a>-->
+            <!--</div>&ndash;&gt;-->
+            <!--<div class="g-header__action--search">-->
+                <!--<span onclick="g_search_click()">&nbsp;</span>-->
+                <!--<input type="text" placeholder="搜索" id="g-search-input" onkeydown="g_search_keydown(event)"/>-->
+                <!--<a class="g-header__search" onclick="g_search_click()"></a>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <div class="clearfix"></div>
 </div>

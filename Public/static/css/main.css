@@ -69,7 +69,7 @@ textarea {
 }
 /*-----------------------------------------------------common page----------------------------------------------------*/
 .main {
-    padding-top:10px;
+    /*padding-top:10px;*/
     padding-bottom:50px;
 }
 .full-screen{
@@ -196,7 +196,7 @@ a.btn--red:focus{
 }
 .index-page .slide-wrapper .slides_container{
     margin: 0 auto;
-    width: 1000px;
+    min-width: 1000px;
     height: 0;
     position: relative;
 }
@@ -508,8 +508,8 @@ a.btn--red:focus{
     float: right; font-size: 12px;line-height: 30px;
 }
 .index-page-news .column.col-span-2{
-    width: 630px;float: left;
-    margin-right: 40px;
+    width: 600px;float: left;
+    margin-right: 70px;
 }
 .index-page-news .column .index-page-title{
     font-size: 18px;
