@@ -19,7 +19,7 @@
                 <div class="column col-span-2">
                     <div class="index-page-title">
                         中心动态
-                        <a class="link-more" href="/News/reports.html">更多中心动态</a>
+                        <a class="link-more" href="{:U('/Content/sub?Id=310')}">更多中心动态</a>
                     </div>
                     <table>
                         <tr>
@@ -30,7 +30,7 @@
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a target="_blank" href="{$report.link}">{$report.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$report['id'].'&subId='.$report['category_id'])}">{$report.title}</a>
                                 </td>
                                 <td>{$report.create_time|date='Y-m-d',###}</td>
                             </tr>
@@ -40,7 +40,7 @@
                 <div class="column">
                     <div class="index-page-title">
                         通知公告
-                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">更多通知公告</a>
+                        <a class="link-more" href="{:U('/Content/sub?Id=330')}">更多通知公告</a>
                     </div>
                     <table>
                         <tr>
@@ -61,7 +61,7 @@
                 <div class="column col-span-2">
                     <div class="index-page-title">
                         行业资讯
-                        <a class="link-more" href="{:U('/Home/news/news?typeId=1')}">更多行业资讯</a>
+                        <a class="link-more" href="{:U('/Content/sub?Id=320')}">更多行业资讯</a>
                     </div>
                     <table>
                         <tr>
@@ -72,7 +72,7 @@
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Home/news/detail?id='.$rn['id'])}">{$rn.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$report['id'].'&subId='.$report['category_id'])}">{$rn.title}</a>
                                 </td>
                                 <td>{$rn.create_time|date='m/d',###}</td>
                             </tr>
@@ -83,7 +83,7 @@
                 <div class="column">
                     <div class="index-page-title">
                         中心简介
-                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">查看详情</a>
+                        <a class="link-more" href="{:U('/Content/content?Id=4')}">查看详情</a>
                     </div>
                     <div>
                         {$introContent}
@@ -92,7 +92,7 @@
                 <div class="column col-span-2">
                     <div class="index-page-title">
                         创新研究
-                        <a class="link-more" href="{:U('/Home/news/news?typeId=1')}">更多创新研究</a>
+                        <a class="link-more" href="">更多创新研究</a>
                     </div>
                     <table>
                         <tr>
@@ -114,7 +114,7 @@
                 <div class="column">
                     <div class="index-page-title">
                         友情链接
-                        <a class="link-more" href="{:U('/Home/news/news?typeId=0')}">更多友情链接</a>
+                        <!--<a class="link-more" href="{:U('/Home/news/news?typeId=0')}">更多友情链接</a>-->
                     </div>
                     <table>
                         <tr>
@@ -153,8 +153,8 @@
                     effect: "slide"
                 },
                 slidesLoaded: function () {
-                    $('.slides_container').css({height: '600px'});
-                    $(".slides_control").css({width: "100%", height: "600px"});
+                    $('.slides_container').css({height: '500px'});
+                    $(".slides_control").css({width: "100%", height: "500px"});
                 }
             });
             $('#header-nav-index').addClass('current');
