@@ -8,8 +8,14 @@
         <div class="common-wrapper" style="overflow: hidden;">
             <ul class="aboutus-list">
                 <volist name="lists" id="data">
-                    <li><a class="{$content['id']==$data['id']?'current':''}" href="{:U('/Content/content?Id='.$data['id'])}"
+                    <if condition="$data['root'] != null">
+                        <li><a class="{$content['id']==$data['id']?'current':''}" href="{:U('/Content/content?Id='.$data['id'])}"
                            id="{$data.id}">{$data.title}</a></li>
+                    </if>
+                    <if condition="$data['root'] == null">
+                        <li><a class="{$cateId==$data['id']?'current':''}" href="{:U('/Content/sub?Id='.$data['id'])}"
+                               id="{$data.id}">{$data.title}</a></li>
+                    </if>
                 </volist>
             </ul>
             <div style="width: 740px; float: right; padding: 30px;">

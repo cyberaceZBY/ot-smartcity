@@ -15,11 +15,19 @@ class ContentController extends HomeController {
 
     public function content(){
         $docId = I('get.Id','');
+        $cateId = I('get.subId','');
         $docs = M('document_news')->where('id='.$docId)->select();
         $doc = $docs[0];
         $tmpDocs = M('document')->where('id='.$docId)->select();
-        $relates = M('document')->where('category_id='.$tmpDocs[0]['category_id'])->order('`level` ASC,`id` ASC')->select();
-        $this->assign('lists',$relates);//列表
+        if ($cateId != null) {
+            $tmpCates = M('category')->where('id='.$cateId)->select();
+            $relates = M('category')->where('pid='.$tmpCates[0]['pid'])->order('`sort` ASC,`id` ASC')->select();
+            $this->assign('lists',$relates);//列表
+            $this->assign('cateId',$cateId);
+        } else {
+            $relates = M('document')->where('category_id=' . $tmpDocs[0]['category_id'])->order('`level` ASC,`id` ASC')->select();
+            $this->assign('lists',$relates);//列表
+        }
         $this->assign('title',$tmpDocs[0]['title']);
         $this->assign('content',$doc);
         $this->display();
