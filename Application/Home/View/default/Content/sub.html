@@ -18,7 +18,7 @@
                         <h1>{$title}</h1>
                     </div>
                 </div>
-                <div style="min-height: 300px;">
+                <div class="sub-page" style="min-height: 300px;">
                     <table>
                         <tr>
                             <th></th>
@@ -28,8 +28,9 @@
                             <tr>
                                 <td colspan="2" style="text-align: left;">
                                     <div class="line-tag"></div>
-                                    <a target="view_window" href="{:U('/Content/content?Id='.$pl['id'].'&subId='.$cateId)}">{$pl.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$pl['id'].'&subId='.$cateId)}">{$pl.title}</a>
                                 </td>
+                                <td style="text-align: right;font-size: 13px;">{$pl.create_time|date='Y-m-d',###}</td>
                             </tr>
                         </volist>
                     </table>

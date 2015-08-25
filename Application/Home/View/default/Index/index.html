@@ -32,7 +32,7 @@
                                     <div class="line-tag"></div>
                                     <a target="_blank" href="{$report.link}">{$report.title}</a>
                                 </td>
-                                <td>{$report.time}</td>
+                                <td>{$report.create_time|date='Y-m-d',###}</td>
                             </tr>
                         </volist>
                     </table>
