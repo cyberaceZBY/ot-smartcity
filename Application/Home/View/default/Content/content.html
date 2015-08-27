@@ -7,15 +7,13 @@
 
         <div class="common-wrapper" style="overflow: hidden;">
             <ul class="aboutus-list">
-                <volist name="lists" id="data">
-                    <if condition="$data['root'] != null">
-                        <li><a class="{$content['id']==$data['id']?'current':''}" href="{:U('/Content/content?Id='.$data['id'])}"
-                           id="{$data.id}">{$data.title}</a></li>
-                    </if>
-                    <if condition="$data['root'] == null">
-                        <li><a class="{$cateId==$data['id']?'current':''}" href="{:U('/Content/sub?Id='.$data['id'])}"
-                               id="{$data.id}">{$data.title}</a></li>
-                    </if>
+                <volist name="clists" id="cData">
+                    <li><a class="{$cateId==$cData['id']?'current':''}" href="{:U('/Content/sub?Id='.$cData['id'].'&cateId='.$cData['pid'])}"
+                           id="{$cData.id}">{$cData.title}</a></li>
+                </volist>
+                <volist name="dlists" id="dData">
+                    <li><a class="{$content['id']==$dData['id']?'current':''}" href="{:U('/Content/content?Id='.$dData['id'].'&cateId='.$dData['category_id'])}"
+                           id="{$dData.id}">{$dData.title}</a></li>
                 </volist>
             </ul>
             <div style="width: 740px; float: right; padding: 30px;">

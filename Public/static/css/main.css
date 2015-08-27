@@ -69,7 +69,7 @@ textarea {
 }
 /*-----------------------------------------------------common page----------------------------------------------------*/
 .main {
-    /*padding-top:10px;*/
+    padding-top:20px;
     padding-bottom:50px;
 }
 .full-screen{
@@ -186,7 +186,7 @@ a.btn--red:focus{
     height: auto;
 }
 .index-page .slide-wrapper{
-    height: 500px;
+    height: 300px;
     text-align: center;
     /*background: #e8e8e8;*/
     width: 100%;
@@ -196,13 +196,13 @@ a.btn--red:focus{
 }
 .index-page .slide-wrapper .slides_container{
     margin: 0 auto;
-    min-width: 1000px;
+    max-width: 1000px;
     height: 0;
     position: relative;
 }
 .index-page .slide-wrapper .slide-item {
-    max-width: 1280px;
-    min-width: 1000px;
+    /*max-width: 1280px;*/
+    max-width: 1000px;
     width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -213,7 +213,7 @@ a.btn--red:focus{
 .index-page .slide-wrapper .slide-item .slide-content {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 300px;
     margin: 0 auto;
     background: transparent;
     color: #ffffff;
@@ -744,4 +744,31 @@ a.btn--red:focus{
 {
     from {background: transparent; color:#333}
     to {background: rgba(255,255,255,0.5); color:#000;}
+}
+
+/*----------------------------people page----------------------------*/
+.people-cell {
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+.people-image{
+    background:transparent no-repeat;
+    height: 160px;
+    width: 130px;
+    background-size: 100% auto;
+    background-position:top center;
+    /* border-radius: 100px; */
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0 1px 3px #777;
+    border: 3px solid #ffffff;
+}
+.people-cell .name{
+    font-size: 20px;
+    padding: 10px 0;
+}
+.people-cell .job{
 }

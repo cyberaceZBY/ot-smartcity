@@ -37,9 +37,10 @@
     width: 100%;
     /*box-shadow: 1px 0 3px 0 rgba(0,0,0,0.8);*/
     /*position: fixed;*/
+    padding-top: 30px;
     z-index: 10000;
     top:0;
-    /*background: #232e3c;*/
+    background: #f7f7f7;
 }
 .g-header{
     width: 1000px;
@@ -60,20 +61,20 @@
     height: 50px;
     width: 50px;
     margin-right: 10px;
-    background: url(/Public/static/logo.jpg) no-repeat;
+    background: url(/Public/static/logo.png) no-repeat;
     background-position: top left;
     background-size: 50px 50px;
 }
 .g-header .g-header__logo a .title{
     font-size: 24px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 .g-header .g-header__logo a .sub-title{
 
 }
 .g-header .g-header__nav{
     position: relative;
-    margin: 30px 0 0 0;
+    margin: 20px 0 0 0;
     height: 50px;
     line-height: 50px;
     /*border-bottom: 2px solid #f3f3f3;*/
@@ -93,7 +94,8 @@
 }
 .g-header .g-header__nav .menu-item:hover,
 .g-header .g-header__nav .menu-item:focus{
-    box-shadow: 0 1px 3px #dddddd;
+    box-shadow: 0 1px 3px #aaaaaa;
+    background-color: #ffffff;
 }
 .g-header .g-header__nav .menu-item:hover a.menu-title,
 .g-header .g-header__nav .menu-item:focus a.menu-title{
@@ -116,7 +118,7 @@
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    box-shadow: 0 1px 3px #dddddd;
+    box-shadow: 0 1px 3px #aaaaaa;
 }
 .g-header .g-header__nav .menu-item:hover ul.sub-menu{
     display: block;

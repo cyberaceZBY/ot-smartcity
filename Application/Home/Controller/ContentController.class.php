@@ -13,35 +13,67 @@ namespace Home\Controller;
  */
 class ContentController extends HomeController {
 
+    private function relatedCategories(){
+        $cateId = I('get.cateId','');
+        if ($cateId != null) {
+            $relateCategories = M('category')->where('pid=' . $cateId)->order('`sort` ASC,`id` ASC')->select();
+            $normalCategories = array();
+            $peopleList = array();
+            foreach($relateCategories as $category){
+                if ($category['model'] == self::getModelEnum('people')){
+                    $peopleList[] = $category;
+                } else {
+                    $normalCategories[] = $category;
+                }
+            }
+            $this->assign('clists', $normalCategories); //列表
+            $this->assign('plists', $peopleList); //列表
+        }
+        if ($cateId != null) {
+            $relateDocs = M('document')->where('category_id=' . $cateId)->order('`level` ASC,`id` ASC')->select();
+            $this->assign('dlists', $relateDocs); //列表
+        }
+    }
+
     public function content(){
+        self::relatedCategories();
+
         $docId = I('get.Id','');
-        $cateId = I('get.subId','');
         $docs = M('document_news')->where('id='.$docId)->select();
         $doc = $docs[0];
         $tmpDocs = M('document')->where('id='.$docId)->select();
-        if ($cateId != null) {
-            $tmpCates = M('category')->where('id='.$cateId)->select();
-            $relates = M('category')->where('pid='.$tmpCates[0]['pid'])->order('`sort` ASC,`id` ASC')->select();
-            $this->assign('lists',$relates);//列表
-            $this->assign('cateId',$cateId);
-        } else {
-            $relates = M('document')->where('category_id=' . $tmpDocs[0]['category_id'])->order('`level` ASC,`id` ASC')->select();
-            $this->assign('lists',$relates);//列表
-        }
         $this->assign('title',$tmpDocs[0]['title']);
         $this->assign('content',$doc);
         $this->display();
     }
 
     public function sub(){
-        $cateId = I('get.Id','');
-        $subs = M('document')->where('category_id='.$cateId)->select();
-        $tmpCates = M('category')->where('id='.$cateId)->select();
-        $relates = M('category')->where('pid='.$tmpCates[0]['pid'])->order('`sort` ASC,`id` ASC')->select();
-        $this->assign('lists',$relates);//列表
+        self::relatedCategories();
+
+        $Id = I('get.Id','');
+        $subs = M('document')->where('category_id='.$Id)->select();
+        $tmpCates = M('category')->where('id='.$Id)->select();
         $this->assign('title',$tmpCates[0]['title']);
         $this->assign('content',$subs);
-        $this->assign('cateId',$cateId);
+        $this->assign('cateId',$Id);
+        $this->display();
+    }
+
+    public function peopleList(){
+        self::relatedCategories();
+
+        $Id = I('get.Id','');
+        $people = M('people')->where('category_id='.$Id)->order('`level` ASC,`id` ASC')->select();
+        $formedPeople = array();
+        foreach ($people as $p) {
+            if ($formedPeople[$p['school']]==null)
+                $formedPeople[$p['school']] = array();
+            $formedPeople[$p['school']][] = $p;
+        }
+        $tmpCates = M('category')->where('id='.$Id)->select();
+        $this->assign('title',$tmpCates[0]['title']);
+        $this->assign('content',$formedPeople);
+        $this->assign('cateId',$Id);
         $this->display();
     }
 }

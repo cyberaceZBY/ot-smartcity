@@ -16,6 +16,14 @@ use Think\Controller;
  */
 class HomeController extends Controller {
 
+    public function getModelEnum($string){
+        if ('document_news'==$string)
+            return 1200;
+        if ('people'==$string)
+            return 1300;
+    }
+
+
 	/* 空操作，用于输出404页面 */
 	public function _empty(){
 		$this->redirect('Index/index');
@@ -41,6 +49,7 @@ class HomeController extends Controller {
 
 
     protected function initNav(){
+
         $cateList = M('category')->order('sort ASC,id ASC')->select();
         $navMenu = [];
         foreach($cateList as $cate) {
@@ -52,7 +61,11 @@ class HomeController extends Controller {
                 foreach($cateList as $sub_cate) {
                     if ($sub_cate['pid'] == $cate['id']){
                         $subMenuItem = $sub_cate;
-                        $subMenuItem['type'] = -1;//sub menu
+                        if ($sub_cate['model']==self::getModelEnum('people')) {
+                            $subMenuItem['type'] = -2; //people page
+                        } else {
+                            $subMenuItem['type'] = -1; //doc sub menu
+                        }
                         $menuItem['list'][] = $subMenuItem;
                     }
                 }
