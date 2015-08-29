@@ -16,7 +16,7 @@ class ContentController extends HomeController {
     private function relatedCategories(){
         $cateId = I('get.cateId','');
         if ($cateId != null) {
-            $relateCategories = M('category')->where('pid=' . $cateId)->order('`sort` ASC,`id` ASC')->select();
+            $relateCategories = M('category')->where('pid=' . $cateId)->order('`sort` DESC,`id` ASC')->select();
             $normalCategories = array();
             $peopleList = array();
             foreach($relateCategories as $category){
@@ -30,7 +30,7 @@ class ContentController extends HomeController {
             $this->assign('plists', $peopleList); //列表
         }
         if ($cateId != null) {
-            $relateDocs = M('document')->where('category_id=' . $cateId)->order('`level` ASC,`id` ASC')->select();
+            $relateDocs = M('document')->where('category_id=' . $cateId. ' AND status>0')->order('`level` DESC,`id` ASC')->select();
             $this->assign('dlists', $relateDocs); //列表
         }
     }
@@ -42,8 +42,10 @@ class ContentController extends HomeController {
         $docs = M('document_news')->where('id='.$docId)->select();
         $doc = $docs[0];
         $tmpDocs = M('document')->where('id='.$docId)->select();
-        $this->assign('title',$tmpDocs[0]['title']);
-        $this->assign('content',$doc);
+        if ($tmpDocs[0]['status']>0) {
+            $this->assign('title', $tmpDocs[0]['title']);
+            $this->assign('content', $doc);
+        }
         $this->display();
     }
 
@@ -51,7 +53,7 @@ class ContentController extends HomeController {
         self::relatedCategories();
 
         $Id = I('get.Id','');
-        $subs = M('document')->where('category_id='.$Id)->select();
+        $subs = M('document')->where('category_id='.$Id. ' AND status>0')->select();
         $tmpCates = M('category')->where('id='.$Id)->select();
         $this->assign('title',$tmpCates[0]['title']);
         $this->assign('content',$subs);
@@ -63,7 +65,7 @@ class ContentController extends HomeController {
         self::relatedCategories();
 
         $Id = I('get.Id','');
-        $people = M('people')->where('category_id='.$Id)->order('`level` ASC,`id` ASC')->select();
+        $people = M('people')->where('category_id='.$Id)->order('`level` DESC,`id` ASC')->select();
         $formedPeople = array();
         foreach ($people as $p) {
             if ($formedPeople[$p['school']]==null)
@@ -74,6 +76,6 @@ class ContentController extends HomeController {
         $this->assign('title',$tmpCates[0]['title']);
         $this->assign('content',$formedPeople);
         $this->assign('cateId',$Id);
-        $this->display();
+        $this->display('peopleList');
     }
 }

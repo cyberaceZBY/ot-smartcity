@@ -100,7 +100,7 @@ class NewsController extends HomeController {
     /* 文档模型频道页 */
     public function reports(){
         /* 分类信息 */
-        $reports    = M('report')->order('level ASC,id DESC')->select();
+        $reports    = M('report')->order('level DESC,id DESC')->select();
 
         //频道页只显示模板，默认不读取任何内容
         //内容可以通过模板标签自行定制
@@ -116,7 +116,7 @@ class NewsController extends HomeController {
         /* 分类信息 */
 //        $reports    = M('document')->order('level ASC,id DESC')->select();
 
-        $newsList = M('document')->order('level ASC,id DESC')->select();
+        $newsList = M('document')->where('status>0')->order('level DESC,id DESC')->select();
         $newsContentList = M('document_news')->order('id DESC')->select();
         $finalNews = array();
         foreach($newsList as $news) {

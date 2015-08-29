@@ -18,15 +18,15 @@ class IndexController extends HomeController {
 	//系统首页
     public function index(){
         //中心动态
-        $centerNews = M('document')->where('category_id=310 AND status=1')->order('level ASC,id ASC')->select();
+        $centerNews = M('document')->where('category_id=310 AND status=1')->order('level DESC,id ASC')->select();
         $this->assign('centerNewsList',$centerNews);//列表
 
         //行业资讯
-        $fieldNews= M('document')->where('category_id=320 AND status=1')->order('level ASC,id ASC')->select();
+        $fieldNews= M('document')->where('category_id=320 AND status=1')->order('level DESC,id ASC')->select();
         $this->assign('fieldNewsList',$fieldNews);//列表
 
         //通知公告
-        $announcement = M('document')->where('category_id=110 AND status=1')->order('level ASC,id DESC')->select();
+        $announcement = M('document')->where('category_id=110 AND status=1')->order('level DESC,id DESC')->select();
         $this->assign('announcementList',$announcement);//列表
 
         //中心简介
@@ -34,7 +34,7 @@ class IndexController extends HomeController {
         $this->assign('introContent',$intro[0]['description']);//列表
 
         //友情链接
-        $partner = M('partner')->order('level ASC,id DESC')->select();
+        $partner = M('partner')->order('level DESC,id DESC')->select();
         $this->assign('partnerList',$partner);//列表
 
         $this->display();
