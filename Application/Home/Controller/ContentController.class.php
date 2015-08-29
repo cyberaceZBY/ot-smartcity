@@ -59,7 +59,7 @@ class ContentController extends HomeController {
         $this->display();
     }
 
-    public function peoplelist(){
+    public function peopleList(){
         self::relatedCategories();
 
         $Id = I('get.Id','');
