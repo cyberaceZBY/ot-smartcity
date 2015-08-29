@@ -22,7 +22,7 @@
                             </if>
                             <!--people list entrance-->
                             <if condition="$nav_sub['type'] == -2">
-                                <a href="{:U('/Content/peopleList?Id='.$nav_sub['id'].'&cateId='.$nav_sub['pid'])}" class="sub-menu-item">{$nav_sub['title']}</a>
+                                <a href="{:U('/Content/peoplelist?Id='.$nav_sub['id'].'&cateId='.$nav_sub['pid'])}" class="sub-menu-item">{$nav_sub['title']}</a>
                             </if>
                             <!--document news entrance-->
                             <if condition="$nav_sub['type'] != -1 && $nav_sub['type'] != -2">
