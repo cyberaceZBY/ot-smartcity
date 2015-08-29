@@ -33,6 +33,10 @@ class IndexController extends HomeController {
         $intro = M('document')->where('id=4')->select();
         $this->assign('introContent',$intro[0]['description']);//列表
 
+        //科研成果
+        $achievement = M('document')->where('category_id=410 AND status=1')->order('level DESC,id ASC')->select();
+        $this->assign('achievementList',$achievement);//列表
+
         //友情链接
         $partner = M('partner')->order('level DESC,id DESC')->select();
         $this->assign('partnerList',$partner);//列表

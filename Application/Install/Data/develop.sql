@@ -34,7 +34,7 @@ CREATE TABLE `slide` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-INSERT INTO `model` VALUES (1100,'slide','幻灯片',0,'',1,'{\"1\":[\"1101\",\"1102\",\"1103\",\"1104\",\"1105\",\"1106\"]}','1:基础','','','','','id:编号\r\ntitle:标题\r\nimage:图片\r\ndescription:描述\r\nlink:订购链接\r\nlevel:排序',10,'','',1420438352,1424018624,1,'MyISAM');
+INSERT INTO `model` VALUES (1100,'slide','幻灯片',0,'',1,'{\"1\":[\"1101\",\"1102\",\"1103\",\"1104\",\"1105\",\"1106\"]}','1:基础','','','','','id:编号\r\ntitle:标题\r\nimage:图片\r\ndescription:描述\r\nlink:链接\r\nlevel:排序',10,'','',1420438352,1424018624,1,'MyISAM');
 
 INSERT INTO `attribute` VALUES
   (1101,'title','标题','varchar(255) NOT NULL','string','','',1,'',1100,1,1,1420438379,1420438379,'',3,'','regex','',3,'function'),

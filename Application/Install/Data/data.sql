@@ -17,8 +17,7 @@ INSERT INTO `picture` (`id`, `path`, `url`, `md5`, `sha1`, `status`, `create_tim
 VALUES
 	(1001, '/Public/static/imgdata/index-slide-1.jpg', '', '4cc1093cbf82719cd991a0d17aed1a01', 'a8693ae0c9a21a44ecec1885b22d0e9dfa9ebc4f', 1, 1420708500),
 	(1002, '/Public/static/imgdata/index-slide-2.jpg', '', '59ec7cfebcb58b3b04b4f771b04d8a16', '2835f8a17e66fe9124dc582bba063226d290184b', 1, 1420708529),
-	(1003, '/Public/static/imgdata/index-slide-3.jpg', '', '59ec7cfebcb58b3b04b4f771b04d8a16', '2835f8a17e66fe9124dc582bba063226d290184b', 1, 1420708529),
-	(1004, '/Uploads/Picture/2015-08-29/55e13243757e9.png', '', '6881516ed15869ee8e3e3a733b54c35e', 'caacac730d9d1f2233c4bbae95a824e975ed0ac3', 1, 1440821827);
+	(1003, '/Public/static/imgdata/index-slide-3.jpg', '', '59ec7cfebcb58b3b04b4f771b04d8a16', '2835f8a17e66fe9124dc582bba063226d290184b', 1, 1420708529);
 
 INSERT INTO `document` (`id`, `uid`, `name`, `title`, `category_id`, `description`, `root`, `pid`, `model_id`, `type`, `position`, `link_id`, `cover_id`, `display`, `deadline`, `attach`, `view`, `comment`, `extend`, `level`, `create_time`, `update_time`, `status`)
 VALUES
@@ -76,3 +75,7 @@ VALUES
 	(9, '上海仪电控股（集团）公司', 'www.inesa.com/', 5),
 	(10, '华为技术有限公司', 'http://www.huawei.com/cn/', 6),
 	(11, '神州数码信息系统有限公司', 'www.digitalchina.com/', 7);
+
+INSERT INTO `people` (`id`, `name`, `school`, `job`, `image`, `level`, `description`, `category_id`)
+VALUES
+	(4, '梅宏', '上海交通大学', '教授', 1004, 0, '<span style=\"font-size:14px;\">梅宏：中国科学院院士，上海交通大学副校长。主要从事软件工程相关领域的研究。曾任国家863计划专家组成员、国家“核高基”科技重大专项专家组成员等。现任国家863计划“十二五”信息技术领域先进计算技术主题专家组组长，中国计算机学会系统软件专业委员会主任，中国软件行业协会副理事长，全国信息技术标准化技术委员会SOA分技术委员会主任，国务院学位委员会计算机科学与技术学科评议组成员，教育部</span><span style=\"font-size:14px;\">科学技术委员会委员。</span>', 510);

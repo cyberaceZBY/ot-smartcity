@@ -14,7 +14,18 @@ namespace Home\Controller;
 class ContentController extends HomeController {
 
     private function relatedCategories(){
-        $cateId = I('get.cateId','');
+        $getCateId = I('get.cateId','');
+        $pid = $getCateId;
+        $cateId = $getCateId;
+        while(1) {
+            $temp = M('category')->where('id=' . $pid)->select();
+            if ($temp[0]['pid']==0) {
+                $cateId = $temp[0]['id'];
+                break;
+            } else {
+                $pid = $temp[0]['pid'];
+            }
+        }
         if ($cateId != null) {
             $relateCategories = M('category')->where('pid=' . $cateId)->order('`sort` DESC,`id` ASC')->select();
             $normalCategories = array();
@@ -33,6 +44,7 @@ class ContentController extends HomeController {
             $relateDocs = M('document')->where('category_id=' . $cateId. ' AND status>0')->order('`level` DESC,`id` ASC')->select();
             $this->assign('dlists', $relateDocs); //列表
         }
+
     }
 
     public function content(){
@@ -46,6 +58,8 @@ class ContentController extends HomeController {
             $this->assign('title', $tmpDocs[0]['title']);
             $this->assign('content', $doc);
         }
+        $getCateId = I('get.cateId','');
+        $this->assign('cateId', $getCateId);
         $this->display();
     }
 

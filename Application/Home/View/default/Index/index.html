@@ -30,7 +30,7 @@
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Content/content?Id='.$report['id'].'&subId='.$report['category_id'])}">{$report.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$report['id'].'&cateId='.$report['category_id'])}">{$report.title}</a>
                                 </td>
                                 <td>{$report.create_time|date='Y-m-d',###}</td>
                             </tr>
@@ -51,7 +51,7 @@
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Home/news/detail?id='.$mn['id'])}">{$mn.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$mn['id'].'&cateId='.$mn['category_id'])}">{$mn.title}</a>
                                 </td>
                                 <td>{$mn.create_time|date='Y-m-d',###}</td>
                             </tr>
@@ -72,9 +72,9 @@
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Content/content?Id='.$report['id'].'&subId='.$report['category_id'])}">{$rn.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$report['id'].'&cateId='.$report['category_id'])}">{$rn.title}</a>
                                 </td>
-                                <td>{$rn.create_time|date='m/d',###}</td>
+                                <td>{$rn.create_time|date='Y-m-d',###}</td>
                             </tr>
                         </volist>
 
@@ -91,7 +91,7 @@
                 </div>
                 <div class="column col-span-2">
                     <div class="index-page-title">
-                        创新研究
+                        科研成果
                         <a class="link-more" href="">更多创新研究</a>
                     </div>
                     <table>
@@ -99,13 +99,13 @@
                             <th></th>
                             <th style="width: 80px;"></th>
                         </tr>
-                        <volist name="rightNews" id="rn">
+                        <volist name="achievementList" id="rn">
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Home/news/detail?id='.$rn['id'])}">{$rn.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$report['id'].'&cateId='.$report['category_id'])}">{$rn.title}</a>
                                 </td>
-                                <td>{$rn.create_time|date='m/d',###}</td>
+                                <td>{$rn.create_time|date='Y-m-d',###}</td>
                             </tr>
                         </volist>
 
