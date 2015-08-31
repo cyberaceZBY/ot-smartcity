@@ -757,6 +757,10 @@ a.btn--red:focus{
     height: 263px;
     overflow: hidden;
 }
+.sub-page .people-cell:hover{
+    cursor: pointer;
+    box-shadow: 0 1px 3px #777777;
+}
 .people-image{
     background:transparent no-repeat;
     height: 160px;
