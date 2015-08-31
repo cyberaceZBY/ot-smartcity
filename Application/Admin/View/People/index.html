@@ -55,11 +55,12 @@
                             <table style="background: transparent;">
                                 <tbody>
                                 <volist name="list_grids" id="grid">
-                                        <tr style="background: transparent;"><td style="width: 50px;">{$grid.title}</td>
+                                        <tr style="background: transparent;">
+                                            <td style="width: 100px;">{$grid.title}</td>
                                             <td>
                                                 <if condition="is_array($grid['field']) && !empty($grid['field'][0]) && $grid['field'][0]=='image'">
                                                     <php>$image=get_list_field($data,$grid,$model);</php>
-                                                    <img src="{$image|get_cover='path'}" style="width: 800px; height: 300px;">
+                                                    <img src="{$image|get_cover='path'}" style="width: 130px; height: 160px;">
                                                     <else/>
                                                     {:get_list_field($data,$grid,$model)}
                                                 </if>

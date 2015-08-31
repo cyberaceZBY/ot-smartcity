@@ -66,7 +66,7 @@ INSERT INTO `attribute` VALUES
   (1301,'name','用户名字','varchar(255) NOT NULL','string','','',1,'',1300,1,1,1420438379,1420438379,'',3,'','regex','',3,'function'),
   (1306,'school','单位','varchar(255) NOT NULL','string','','',1,'',1300,1,1,1420438379,1420438379,'',3,'','regex','',3,'function'),
   (1302,'job','职业','varchar(255) NOT NULL','string','','',1,'',1300,1,1,1420438379,1420438379,'',3,'','regex','',3,'function'),
-  (1303,'image','图片','int(10) UNSIGNED NOT NULL','picture','','请上传200x200像素以上的图片',1,'',1300,1,1,1420458191,1420458191,'',3,'','regex','',3,'function'),
+  (1303,'image','图片','int(10) UNSIGNED NOT NULL','picture','','请上传260x320像素以上的图片',1,'',1300,1,1,1420458191,1420458191,'',3,'','regex','',3,'function'),
   (1304,'description','描述','text NOT NULL','editor','','',1,'',1300,1,1,1424018241,1424018241,'',3,'','regex','',3,'function'),
   (1305,'level','排序','int(10) UNSIGNED NOT NULL','num','0','',1,'',1300,0,1,1420612173,1420612173,'',3,'','regex','',3,'function');
 
