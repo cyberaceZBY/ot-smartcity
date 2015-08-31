@@ -59,20 +59,18 @@
     <div class="people-detail-container" hidden>
         <div class="cover"></div>
         <div style="position: fixed;left:0;top:200px;width: 100%;">
-            <div class="panel">
+            <div class="panel filter-drop-shadow">
                 <div class="people-cell">
-                    <div class="people-image" style="background-image: url({$people.image|get_cover='path'})"></div>
+                    <div class="people-image"></div>
                     <div class="name"></div>
                     <div class="job"></div>
                 </div>
                 <div class="description-cell">
                     <h2 style="color: #333333;margin-bottom: 10px;">个人简介</h2>
                     <div class="description" style="color: #777777;">
-
-                        <!--<span style="font-size:14px;">梅宏：中国科学院院士，上海交通大学副校长。主要从事软件工程相关领域的研究。曾任国家863计划专家组成员、国家“核高基”科技重大专项专家组成员等。现任国家863计划“十二五”信息技术领域先进计算技术主题专家组组长，中国计算机学会系统软件专业委员会主任，中国软件行业协会副理事长，全国信息技术标准化技术委员会SOA分技术委员会主任，国务院学位委员会计算机科学与技术学科评议组成员，教育部</span>-->
-                        <!--<span style="font-size:14px;">科学技术委员会委员。</span>-->
                     </div>
                 </div>
+                <div class="btn-close"></div>
             </div>
         </div>
     </div>
@@ -86,7 +84,7 @@
                 showPeople(this);
             });
 
-            $('.people-detail-container .cover').click(function(){
+            $('.people-detail-container .btn-close').click(function(){
                 hidePeople();
             });
 

@@ -789,7 +789,7 @@ a.btn--red:focus{
     width: 680px;
     height: 263px;
     background: #ffffff;
-    box-shadow: 3px 5px 20px #777777;
+    /*box-shadow: 3px 5px 20px #777777;*/
     border-radius: 5px;
 }
 .people-detail-container .panel .description-cell{
@@ -808,3 +808,21 @@ a.btn--red:focus{
     left: 0;
 }
 
+.people-detail-container .btn-close{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    box-shadow: 0 1px 3px #777777;
+    border-radius: 30px;
+    background: url(/Public/static/img/close.png) no-repeat #ffffff;
+    background-size: contain;
+    cursor: pointer;
+}
+.filter-drop-shadow {
+    -webkit-filter: drop-shadow(10px 20px 20px #777777);
+    -moz-filter: drop-shadow(10px 20px 20px #777777);
+    -o-filter: drop-shadow(10px 20px 20px #777777);
+    filter: drop-shadow(10px 20px 20px #777777);
+}
