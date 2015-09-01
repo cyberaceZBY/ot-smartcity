@@ -505,7 +505,7 @@ a.btn--red:focus{
 .index-page-news .column{
     width: 330px;float: left;
     min-height: 230px;
-    max-height: 300px;
+    max-height: 332px;
     overflow: hidden;
     /*margin-right: 40px;*/
 }
