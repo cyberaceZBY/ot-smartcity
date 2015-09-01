@@ -225,6 +225,7 @@ a.btn--red:focus{
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-left{
     left: 0;
+    text-align: right;
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-center{
     padding-top: 40px;
@@ -233,16 +234,15 @@ a.btn--red:focus{
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-right{
     right: 0;
+    text-align: right;
 }
 .index-page .slide-wrapper .slide-item .slide-content .title{
     position: absolute;
     bottom: 50px;
     max-height: 100px;
     max-width: 600px;
-    text-align: right;
     background: rgba(50, 50, 50, 0.5);
-    line-height: 50px;
-    padding: 0 50px;
+    padding: 10px 50px;
     font-size: 20px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 1px 1px 1px #000000;
