@@ -7,7 +7,11 @@
             <div class="slides_container">
                 <think:datalist name="slide" result="slide" limit="5" order="level DESC,id DESC">
                     <div class="slide-item" style="background-image: url({$slide.image|get_cover='path'})">
-                        <a class="slide-content" style="display: block;" href="{$slide.link}"></a>
+                        <a class="slide-content" style="display: block;" href="{$slide.link}">
+                            <div class="title {$slide['position']=='left'?'pos-left':'pos-right'}">
+                                {$slide.title}
+                            </div>
+                        </a>
                     </div>
                 </think:datalist>
             </div>

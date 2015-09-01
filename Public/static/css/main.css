@@ -1,6 +1,6 @@
 html,body {
     /*font: 12px "PingHei", Helvetica, Arial, "Microsoft jhengHei", sans-serif;*/
-    font: 13px Helvetica, Arial, 'Microsoft YaHei', 'Hiragino Sans GB', 'Hiragino Sans GB W3', STXihei, STHeiti, Heiti, SimSun, sans-serif;
+    font: 13px '微软雅黑',Helvetica, Arial,  'Hiragino Sans GB', 'Hiragino Sans GB W3', STXihei, STHeiti, Heiti, SimSun, sans-serif;
     color:#404040;
     background-color:#ffffff;
     font-weight:lighter;
@@ -206,7 +206,7 @@ a.btn--red:focus{
     width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: auto 500px;
+    background-size: 1000px auto;
     position: relative;
     display: none;
 }
@@ -224,9 +224,7 @@ a.btn--red:focus{
     line-height: 20px;
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-left{
-    width: 50%;
-    text-align: left;
-    padding-top: 80px;
+    left: 0;
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-center{
     padding-top: 40px;
@@ -234,14 +232,20 @@ a.btn--red:focus{
     width: 100%;
 }
 .index-page .slide-wrapper .slide-item .slide-content .pos-right{
-    width: 50%;
-    text-align: right;
-    padding-top: 80px;
-    float: right;
+    right: 0;
 }
 .index-page .slide-wrapper .slide-item .slide-content .title{
-    font-size: 24px;
-    line-height: 36px;
+    position: absolute;
+    bottom: 50px;
+    max-height: 100px;
+    max-width: 600px;
+    text-align: right;
+    background: rgba(50, 50, 50, 0.5);
+    line-height: 50px;
+    padding: 0 50px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 1px #000000;
 }
 .index-page .slide-wrapper .slide-item .slide-content .description{
     line-height: 24px;

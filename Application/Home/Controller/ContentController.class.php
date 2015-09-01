@@ -41,7 +41,7 @@ class ContentController extends HomeController {
             $this->assign('plists', $peopleList); //列表
         }
         if ($cateId != null) {
-            $relateDocs = M('document')->where('category_id=' . $cateId. ' AND status>0')->order('`level` DESC,`id` ASC')->select();
+            $relateDocs = M('document')->where('category_id=' . $cateId. ' AND status=1')->order('`level` DESC,`id` ASC')->select();
             $this->assign('dlists', $relateDocs); //列表
         }
 
@@ -54,7 +54,7 @@ class ContentController extends HomeController {
         $docs = M('document_news')->where('id='.$docId)->select();
         $doc = $docs[0];
         $tmpDocs = M('document')->where('id='.$docId)->select();
-        if ($tmpDocs[0]['status']>0) {
+        if ($tmpDocs[0]['status']=1) {
             $this->assign('title', $tmpDocs[0]['title']);
             $this->assign('content', $doc);
         }
@@ -67,7 +67,7 @@ class ContentController extends HomeController {
         self::relatedCategories();
 
         $Id = I('get.Id','');
-        $subs = M('document')->where('category_id='.$Id. ' AND status>0')->select();
+        $subs = M('document')->where('category_id='.$Id. ' AND status=1')->select();
         $tmpCates = M('category')->where('id='.$Id)->select();
         $this->assign('title',$tmpCates[0]['title']);
         $this->assign('content',$subs);

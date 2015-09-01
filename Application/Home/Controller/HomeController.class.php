@@ -50,14 +50,14 @@ class HomeController extends Controller {
 
     protected function initNav(){
 
-        $cateList = M('category')->order('sort ASC,id ASC')->select();
+        $cateList = M('category')->order('sort DESC,id ASC')->select();
         $navMenu = [];
         foreach($cateList as $cate) {
             if ($cate['pid'] == 0 && $cate['id']!='100'){
                 $menuItem = array();
                 $menuItem['id'] = "menu_".$cate['id'];
                 $menuItem['title'] = $cate['title'];
-                $menuItem['list'] = M('document')->where('category_id='.$cate['id'].' AND status=1')->order('level ASC,id ASC')->select();
+                $menuItem['list'] = M('document')->where('category_id='.$cate['id'].' AND status=1')->order('level DESC,id ASC')->select();
                 foreach($cateList as $sub_cate) {
                     if ($sub_cate['pid'] == $cate['id']){
                         $subMenuItem = $sub_cate;
@@ -73,7 +73,7 @@ class HomeController extends Controller {
             }
         }
 
-        $cateList = M('category')->order('sort ASC,id ASC')->select();
+        $cateList = M('category')->order('sort DESC,id ASC')->select();
 
         $this->assign('navMenu',$navMenu);//列表
 //        foreach($navMenu as $menuItem) {
