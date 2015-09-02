@@ -317,7 +317,7 @@ class AdminController extends Controller {
                             if(!C('DEVELOP_MODE')){ // 是否开发者模式
                                 $map['is_dev']  =   0;
                             }
-                            $menuList = M('Menu')->where($map)->field('id,pid,title,url,tip')->order('sort desc')->select();
+                            $menuList = M('Menu')->where($map)->field('id,pid,title,url,tip')->order('sort asc')->select();
                             $menus['child'][$g] = list_to_tree($menuList, 'id', 'pid', 'operater', $item['id']);
                         }
                         if($menus['child'] === array()){
@@ -454,7 +454,7 @@ class AdminController extends Controller {
         //获取动态分类
         $cate_auth  =   AuthGroupModel::getAuthCategories(UID);	//获取当前用户所有的内容权限节点
         $cate_auth  =   $cate_auth == null ? array() : $cate_auth;
-        $cate       =   M('Category')->where(array('status'=>1))->field('id,title,pid,allow_publish')->order('pid,sort')->select();
+        $cate       =   M('Category')->where(array('status'=>1))->field('id,title,pid,allow_publish')->order('pid,sort desc')->select();
 
         //没有权限的分类则不显示
         if(!IS_ROOT){
