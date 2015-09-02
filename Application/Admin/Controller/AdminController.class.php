@@ -317,7 +317,7 @@ class AdminController extends Controller {
                             if(!C('DEVELOP_MODE')){ // 是否开发者模式
                                 $map['is_dev']  =   0;
                             }
-                            $menuList = M('Menu')->where($map)->field('id,pid,title,url,tip')->order('sort asc')->select();
+                            $menuList = M('Menu')->where($map)->field('id,pid,title,url,tip')->order('sort desc')->select();
                             $menus['child'][$g] = list_to_tree($menuList, 'id', 'pid', 'operater', $item['id']);
                         }
                         if($menus['child'] === array()){
