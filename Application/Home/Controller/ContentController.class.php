@@ -67,7 +67,7 @@ class ContentController extends HomeController {
         self::relatedCategories();
 
         $Id = I('get.Id','');
-        $subs = M('document')->where('category_id='.$Id. ' AND status=1')->select();
+        $subs = M('document')->where('category_id='.$Id. ' AND status=1')->order('level DESC,id ASC')->select();
         $tmpCates = M('category')->where('id='.$Id)->select();
         $this->assign('title',$tmpCates[0]['title']);
         $this->assign('content',$subs);
