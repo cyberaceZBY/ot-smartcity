@@ -483,9 +483,15 @@ a.btn--red:focus{
     color: #333333;
     font-size: 18px;
     width: 1000px;
-    margin: 50px auto 30px auto;
+    /*margin: 50px auto 30px auto;*/
     /*padding: 0 5px;*/
     clear: both;
+    margin-top: 20px;
+    line-height: 47px;
+    padding-left: 58px;
+    /*background: url(/Public/static/img/index-icons.png) no-repeat;*/
+    /*background-position: 0 128px;*/
+
 }
 .user-comment-cell{
     width: 25%; float: left; text-align: center;
@@ -498,7 +504,7 @@ a.btn--red:focus{
 }
 .index-page-news{
     padding: 20px 0;overflow: hidden;
-    color: #999999;
+    color: #777777;
     width: 1000px;
     margin: 0 auto;
 }
@@ -510,7 +516,8 @@ a.btn--red:focus{
     /*margin-right: 40px;*/
 }
 .index-page-news .column .link-more{
-    float: right; font-size: 12px;line-height: 30px;
+    float: right; font-size: 12px;
+    /*line-height: 30px;*/
 }
 .index-page-news .column.col-span-2{
     width: 600px;float: left;
@@ -524,7 +531,7 @@ a.btn--red:focus{
     width:100%;
     font-size: 14px;
     border-collapse: collapse;
-    table-layout: fixed; margin-top: 20px;
+    table-layout: fixed; margin-top: 15px;
 }
 .index-page-news .column table td{
     vertical-align: text-top;
