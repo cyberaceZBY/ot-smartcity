@@ -72,13 +72,13 @@
                             <th></th>
                             <th style="width: 80px;"></th>
                         </tr>
-                        <volist name="fieldNewsList" id="rn">
+                        <volist name="fieldNewsList" id="fn">
                             <tr>
                                 <td>
                                     <div class="line-tag"></div>
-                                    <a href="{:U('/Content/content?Id='.$report['id'].'&cateId='.$report['category_id'])}">{$rn.title}</a>
+                                    <a href="{:U('/Content/content?Id='.$fn['id'].'&cateId='.$fn['category_id'])}">{$fn.title}</a>
                                 </td>
-                                <td>{$rn.create_time|date='Y-m-d',###}</td>
+                                <td>{$fn.create_time|date='Y-m-d',###}</td>
                             </tr>
                         </volist>
 
